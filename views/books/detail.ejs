@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+    <form action="/books" method="get">
+        <div class="container mt-5">
+            <h1>Judul Buku : <%= books.judul %> </h1>
+            <h3>ISBN : <%= books.isbn %> </h3>
+            <p class="badge badge-primary"><%= books.genre %> </p>
+            <h4>Sinopsis</h4>
+            <p><%= books.sinopsis %> </p>
+            <p>Penulis : <%= books.penulis %> </p>
+            
+            <button type="submit" class="btn btn-primary">Home</button>    
+        </div>
+    </form>
+</body>
+</html>

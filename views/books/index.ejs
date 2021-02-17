@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs")%>
+<body>
+    
+        <div class="container mt-5">
+            <h1> <%= title %> - Tugas Gerry</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% books.forEach((book,i) => { %>
+                        <tr>
+                            <form action="/books/<%= book.id %>" method="post" class="delete" id="delete">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <td> <%= i+1 %></td>
+                            <td> <a  href="/books/show/<%= book.id %>"> <%= book.judul %> </a></td>
+                            <td> <a class="btn btn-primary" href="/books/update/<%= book.id %>"> Update </a> <button type="submit" class="btn btn-danger" name="delete" > Delete </button></td>
+                            </form>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <form action="/books/new" method="get" class="new" id="new">
+                <button type="submit" class="btn btn-primary" name="new">Tambah Data</button>
+            </form>
+        </div>
+    
+</body>
+</html>
